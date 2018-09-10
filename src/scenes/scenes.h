@@ -6,6 +6,7 @@
 #include <vector>
 #include <climits>
 #include "../utilities/datastore.h"
+#include "../utilities/dataexporter.h"
 
 class Cell;
 
@@ -59,6 +60,8 @@ public:
 	void Solve(); /** main solve method */
 
 	static void Destroy(); /** destroy instance of the scene */
+
+	void outputcellsdata(int cellid, Cell* cell);
 
 private:
 

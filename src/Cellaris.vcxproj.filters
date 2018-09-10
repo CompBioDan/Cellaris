@@ -51,6 +51,30 @@
     <ClInclude Include="cells\cellpopulation.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="imgui.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="shaders.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="utilities\global.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="utilities\dataexporter.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="scenes\simulationscene.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="opengl\imguiRenderGL.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="opengl\shader.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="stb_truetype.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
     <ClInclude Include="flex\core\aabbtree.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -123,28 +147,64 @@
     <ClInclude Include="flex\core\voxelize.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="flex\include\NvFlex.h">
+    <ClInclude Include="flex\external\ags_lib\inc\amd_ags.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="flex\include\NvFlexDevice.h">
+    <ClInclude Include="flex\external\D3D11\include\D3DX10.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="flex\include\NvFlexExt.h">
+    <ClInclude Include="flex\external\D3D11\include\d3dx10async.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="imgui.h">
+    <ClInclude Include="flex\external\D3D11\include\D3DX10core.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="shaders.h">
+    <ClInclude Include="flex\external\D3D11\include\D3DX10math.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="flex\cellexample.h">
+    <ClInclude Include="flex\external\D3D11\include\D3DX10mesh.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="flex\include\createscenes.h">
+    <ClInclude Include="flex\external\D3D11\include\D3DX10tex.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="utilities\global.h">
+    <ClInclude Include="flex\external\D3D11\include\D3DX11.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="flex\external\D3D11\include\D3DX11async.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="flex\external\D3D11\include\D3DX11core.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="flex\external\D3D11\include\D3DX11tex.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="flex\external\D3D12\include\d3d12.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="flex\external\D3D12\include\d3d12sdklayers.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="flex\external\D3D12\include\d3dx12.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="flex\external\glew\include\GL\glew.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="flex\external\glew\include\GL\glxew.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="flex\external\glew\include\GL\wglew.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="flex\external\NvToolsExt\include\nvToolsExt.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="flex\external\regal_shared\include\GL\Regal.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="flex\external\regal_static\include\GL\Regal.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="flex\external\SDL2-2.0.4\include\begin_code.h">
@@ -357,6 +417,24 @@
     <ClInclude Include="flex\external\SDL2-2.0.4\include\SDL_video.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="flex\include\NvFlex.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="flex\include\NvFlexDevice.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="flex\include\NvFlexExt.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="flex\cellexample.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="flex\flexSetup.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="flex\helpers.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -381,6 +459,24 @@
       <Filter>scenes</Filter>
     </ClCompile>
     <ClCompile Include="cells\cellpopulation.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="utilities\global.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="utilities\dataexporter.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="opengl\imguiRenderGL.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="opengl\shader.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="opengl\shadersGL.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="imgui.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="flex\core\aabbtree.cpp">
@@ -416,8 +512,25 @@
     <ClCompile Include="flex\core\voxelize.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="utilities\global.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="lib\NvFlexExtReleaseCUDA_x64.lib" />
+    <Library Include="lib\NvFlexExtReleaseD3D_x64.lib" />
+    <Library Include="lib\NvFlexReleaseCUDA_x64.lib" />
+    <Library Include="lib\NvFlexReleaseD3D_x64.lib" />
+    <Library Include="lib\NvFlexDeviceRelease_x64.lib" />
+    <Library Include="flex\external\glew\lib\x64\glew32.lib" />
+    <Library Include="flex\external\SDL2-2.0.4\lib\x64\SDL2.lib" />
+    <Library Include="flex\external\SDL2-2.0.4\lib\x64\libSDL2main.a" />
+    <Library Include="flex\external\SDL2-2.0.4\lib\x64\SDL2main.lib" />
+    <Library Include="flex\external\SDL2-2.0.4\lib\x64\SDL2test.lib" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="lib\NvFlexExtReleaseD3D_x64.exp" />
+    <None Include="lib\NvFlexExtReleaseCUDA_x64.exp" />
+    <None Include="lib\SDL2.dll" />
+    <None Include="flex\external\D3D11\include\D3DX10math.inl">
+      <Filter>Header Files</Filter>
+    </None>
   </ItemGroup>
 </Project>

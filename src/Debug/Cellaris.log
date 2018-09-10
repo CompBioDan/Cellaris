@@ -1,0 +1,40 @@
+﻿  stdafx.cpp
+  Cellaris.cpp
+c:\program files (x86)\windows kits\8.1\include\um\combaseapi.h(229): error C2760: syntax error: unexpected token 'identifier', expected 'type specifier'
+  cell.cpp
+c:\users\bcl\documents\github\cellaris\src\cells\cell.cpp(110): fatal error C1010: unexpected end of file while looking for precompiled header. Did you forget to add '#include "stdafx.h"' to your source?
+  cellpopulation.cpp
+c:\users\bcl\documents\github\cellaris\src\cells\cellpopulation.cpp(28): fatal error C1010: unexpected end of file while looking for precompiled header. Did you forget to add '#include "stdafx.h"' to your source?
+  aabbtree.cpp
+c:\users\bcl\documents\github\cellaris\src\flex\core\aabbtree.cpp(796): fatal error C1010: unexpected end of file while looking for precompiled header. Did you forget to add '#include "stdafx.h"' to your source?
+  core.cpp
+c:\users\bcl\documents\github\cellaris\src\flex\core\core.cpp(30): fatal error C1010: unexpected end of file while looking for precompiled header. Did you forget to add '#include "stdafx.h"' to your source?
+  extrude.cpp
+c:\users\bcl\documents\github\cellaris\src\flex\core\extrude.cpp(115): fatal error C1010: unexpected end of file while looking for precompiled header. Did you forget to add '#include "stdafx.h"' to your source?
+  maths.cpp
+c:\users\bcl\documents\github\cellaris\src\flex\core\maths.cpp(69): fatal error C1010: unexpected end of file while looking for precompiled header. Did you forget to add '#include "stdafx.h"' to your source?
+  mesh.cpp
+c:\users\bcl\documents\github\cellaris\src\flex\core\mesh.cpp(969): fatal error C1010: unexpected end of file while looking for precompiled header. Did you forget to add '#include "stdafx.h"' to your source?
+  perlin.cpp
+c:\users\bcl\documents\github\cellaris\src\flex\core\perlin.cpp(368): fatal error C1010: unexpected end of file while looking for precompiled header. Did you forget to add '#include "stdafx.h"' to your source?
+  pfm.cpp
+c:\users\bcl\documents\github\cellaris\src\flex\core\pfm.cpp(122): fatal error C1010: unexpected end of file while looking for precompiled header. Did you forget to add '#include "stdafx.h"' to your source?
+  platform.cpp
+c:\users\bcl\documents\github\cellaris\src\flex\core\platform.cpp(349): fatal error C1010: unexpected end of file while looking for precompiled header. Did you forget to add '#include "stdafx.h"' to your source?
+  sdf.cpp
+c:\users\bcl\documents\github\cellaris\src\flex\core\sdf.cpp(361): fatal error C1010: unexpected end of file while looking for precompiled header. Did you forget to add '#include "stdafx.h"' to your source?
+  tga.cpp
+c:\users\bcl\documents\github\cellaris\src\flex\core\tga.cpp(264): fatal error C1010: unexpected end of file while looking for precompiled header. Did you forget to add '#include "stdafx.h"' to your source?
+  voxelize.cpp
+c:\users\bcl\documents\github\cellaris\src\flex\core\voxelize.cpp(94): fatal error C1010: unexpected end of file while looking for precompiled header. Did you forget to add '#include "stdafx.h"' to your source?
+  scenes.cpp
+c:\users\bcl\documents\github\cellaris\src\scenes\scenes.cpp(150): fatal error C1010: unexpected end of file while looking for precompiled header. Did you forget to add '#include "stdafx.h"' to your source?
+  datastore.cpp
+c:\users\bcl\documents\github\cellaris\src\utilities\datastore.cpp(85): fatal error C1010: unexpected end of file while looking for precompiled header. Did you forget to add '#include "stdafx.h"' to your source?
+  global.cpp
+c:\users\bcl\documents\github\cellaris\src\utilities\global.cpp(69): fatal error C1010: unexpected end of file while looking for precompiled header. Did you forget to add '#include "stdafx.h"' to your source?
+  scenetime.cpp
+c:\users\bcl\documents\github\cellaris\src\utilities\scenetime.cpp(109): fatal error C1010: unexpected end of file while looking for precompiled header. Did you forget to add '#include "stdafx.h"' to your source?
+  timestepper.cpp
+c:\users\bcl\documents\github\cellaris\src\utilities\timestepper.cpp(90): fatal error C1010: unexpected end of file while looking for precompiled header. Did you forget to add '#include "stdafx.h"' to your source?
+  Generating Code...

@@ -1,10 +1,15 @@
 #include <cmath>
 #include <iostream>
 #include <fstream>
-
+#include <iostream>
+#include <iomanip>
+#include <iosfwd>
 #include "scenes.h"
+
 #include "../utilities/scenetime.h"
 #include "../cells/cellpopulation.h"
+#include "../utilities/dataexporter.h"
+
 
 // pointer to single instance
 Scene* Scene::mpInstance = nullptr;
@@ -107,7 +112,7 @@ void Scene::Solve()
 	// correctly age all cells before main solve loop
 	for (int i = 0; i < getNumberCells(); ++i)
 	{
-		cell_population[i]->readyToDivide();
+		cell_population[i]->age();
 	}
 	std::cout << "end time: " << p_scene_time->GetEndTime() << '\n';
 	std::cout << "current time: " << p_scene_time->GetTime() << '\n';
@@ -117,18 +122,27 @@ void Scene::Solve()
 	while (!(p_scene_time->HasFinished()))
 	{
 
+		//* Output simulation population data with set frequency*/
+		if ((p_scene_time->GetTimeStepsElapsed() % mSamplingTimestepMultiple)==0) {
+			for (int i = 0; i < getNumberCells(); ++i)
+			{
+				//outputcellsdata(i,getCell(i));
+
+				allCellDataWriter(getCell(i), "C:/Users/BCL/Documents/Cellaris/CellarisFlex/celldata.txt");
+			}
+
+		}
+
 		//UpdateCellPopulation();
 		for (int i = 0; i < getNumberCells(); ++i)
 		{
-
 			if (cell_population[i]->readyToDivide())
 			{
-				addCell(cell_population[i]->divideCell());
+				addCell(cell_population[i]->divide());
 			}
 		}
 
 		p_scene_time->IncrementTimeOneStep();
-
 	}
 
 
@@ -147,3 +161,28 @@ Cell* Scene::getCell(unsigned int cell_id)
 		return cell_population[cell_id];
 }
 
+
+/** MOVED TO SEPERATE DATA OUTPUT CLASS*/
+//void Scene::outputcellsdata(int cellID, Cell* cell)
+//{
+//	const char* g_outputFilename = "C:/Users/BCL/Documents/Cellaris/CellarisFlex/celldata.txt";
+//	std::ofstream g_outputFile;
+//
+//	g_outputFile.open(g_outputFilename, std::ofstream::out | std::ofstream::app);
+//	g_outputFile << std::fixed << std::setprecision(6);
+//
+//	SceneTime* p_scene_time = SceneTime::Instance();
+//	g_outputFile << "Time: " << p_scene_time->GetTime() << std::endl;
+//	g_outputFile << "CellID: " << cell->cell_id << std::endl;
+//	g_outputFile << "Cellage: " << cell->cell_age << std::endl;
+//	g_outputFile << "ParticleCount: " << cell->number_particles << std::endl;
+//	g_outputFile << "ParticleOffset: " << cell->particle_offset << std::endl;
+//	g_outputFile << "SpringOffset: " << cell->spring_offset << std::endl;
+//	g_outputFile << "SpringCount: " << cell->number_springs << std::endl;
+//	g_outputFile << "CellBirthTime: " << cell->cell_birth_time << std::endl;
+//	g_outputFile << "CellPosition: " << cell->cell_position.x << std::endl;
+//
+//	g_outputFile.close();
+//}
+
+//allCellDataWriter* testWriter;

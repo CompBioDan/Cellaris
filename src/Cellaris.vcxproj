@@ -111,6 +111,7 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>C:\Users\BCL\Documents\GitHub\Cellaris\src\lib;C:\Users\BCL\Documents\GitHub\Cellaris\src\flex\external;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -148,6 +149,7 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>C:\Users\BCL\Documents\GitHub\Cellaris\src\lib;C:\Users\BCL\Documents\GitHub\Cellaris\src\flex\external;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -178,6 +180,26 @@
     <ClInclude Include="flex\core\vec3.h" />
     <ClInclude Include="flex\core\vec4.h" />
     <ClInclude Include="flex\core\voxelize.h" />
+    <ClInclude Include="flex\external\ags_lib\inc\amd_ags.h" />
+    <ClInclude Include="flex\external\D3D11\include\D3DX10.h" />
+    <ClInclude Include="flex\external\D3D11\include\d3dx10async.h" />
+    <ClInclude Include="flex\external\D3D11\include\D3DX10core.h" />
+    <ClInclude Include="flex\external\D3D11\include\D3DX10math.h" />
+    <ClInclude Include="flex\external\D3D11\include\D3DX10mesh.h" />
+    <ClInclude Include="flex\external\D3D11\include\D3DX10tex.h" />
+    <ClInclude Include="flex\external\D3D11\include\D3DX11.h" />
+    <ClInclude Include="flex\external\D3D11\include\D3DX11async.h" />
+    <ClInclude Include="flex\external\D3D11\include\D3DX11core.h" />
+    <ClInclude Include="flex\external\D3D11\include\D3DX11tex.h" />
+    <ClInclude Include="flex\external\D3D12\include\d3d12.h" />
+    <ClInclude Include="flex\external\D3D12\include\d3d12sdklayers.h" />
+    <ClInclude Include="flex\external\D3D12\include\d3dx12.h" />
+    <ClInclude Include="flex\external\glew\include\GL\glew.h" />
+    <ClInclude Include="flex\external\glew\include\GL\glxew.h" />
+    <ClInclude Include="flex\external\glew\include\GL\wglew.h" />
+    <ClInclude Include="flex\external\NvToolsExt\include\nvToolsExt.h" />
+    <ClInclude Include="flex\external\regal_shared\include\GL\Regal.h" />
+    <ClInclude Include="flex\external\regal_static\include\GL\Regal.h" />
     <ClInclude Include="flex\external\SDL2-2.0.4\include\begin_code.h" />
     <ClInclude Include="flex\external\SDL2-2.0.4\include\close_code.h" />
     <ClInclude Include="flex\external\SDL2-2.0.4\include\SDL.h" />
@@ -248,14 +270,20 @@
     <ClInclude Include="flex\external\SDL2-2.0.4\include\SDL_types.h" />
     <ClInclude Include="flex\external\SDL2-2.0.4\include\SDL_version.h" />
     <ClInclude Include="flex\external\SDL2-2.0.4\include\SDL_video.h" />
-    <ClInclude Include="flex\include\createscenes.h" />
+    <ClInclude Include="flex\flexSetup.h" />
+    <ClInclude Include="flex\helpers.h" />
     <ClInclude Include="flex\include\NvFlex.h" />
     <ClInclude Include="flex\include\NvFlexDevice.h" />
     <ClInclude Include="flex\include\NvFlexExt.h" />
     <ClInclude Include="imgui.h" />
+    <ClInclude Include="opengl\imguiRenderGL.h" />
+    <ClInclude Include="opengl\shader.h" />
     <ClInclude Include="scenes\scenes.h" />
+    <ClInclude Include="scenes\simulationscene.h" />
     <ClInclude Include="shaders.h" />
+    <ClInclude Include="stb_truetype.h" />
     <ClInclude Include="stdafx.h" />
+    <ClInclude Include="utilities\dataexporter.h" />
     <ClInclude Include="utilities\datastore.h" />
     <ClInclude Include="utilities\global.h" />
     <ClInclude Include="utilities\scenetime.h" />
@@ -276,6 +304,10 @@
     <ClCompile Include="flex\core\sdf.cpp" />
     <ClCompile Include="flex\core\tga.cpp" />
     <ClCompile Include="flex\core\voxelize.cpp" />
+    <ClCompile Include="imgui.cpp" />
+    <ClCompile Include="opengl\imguiRenderGL.cpp" />
+    <ClCompile Include="opengl\shader.cpp" />
+    <ClCompile Include="opengl\shadersGL.cpp" />
     <ClCompile Include="scenes\scenes.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
@@ -283,10 +315,29 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="utilities\dataexporter.cpp" />
     <ClCompile Include="utilities\datastore.cpp" />
     <ClCompile Include="utilities\global.cpp" />
     <ClCompile Include="utilities\scenetime.cpp" />
     <ClCompile Include="utilities\timestepper.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="flex\external\glew\lib\x64\glew32.lib" />
+    <Library Include="flex\external\SDL2-2.0.4\lib\x64\libSDL2main.a" />
+    <Library Include="flex\external\SDL2-2.0.4\lib\x64\SDL2.lib" />
+    <Library Include="flex\external\SDL2-2.0.4\lib\x64\SDL2main.lib" />
+    <Library Include="flex\external\SDL2-2.0.4\lib\x64\SDL2test.lib" />
+    <Library Include="lib\NvFlexDeviceRelease_x64.lib" />
+    <Library Include="lib\NvFlexExtReleaseCUDA_x64.lib" />
+    <Library Include="lib\NvFlexExtReleaseD3D_x64.lib" />
+    <Library Include="lib\NvFlexReleaseCUDA_x64.lib" />
+    <Library Include="lib\NvFlexReleaseD3D_x64.lib" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="flex\external\D3D11\include\D3DX10math.inl" />
+    <None Include="lib\NvFlexExtReleaseCUDA_x64.exp" />
+    <None Include="lib\NvFlexExtReleaseD3D_x64.exp" />
+    <None Include="lib\SDL2.dll" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

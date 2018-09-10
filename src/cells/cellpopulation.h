@@ -9,16 +9,16 @@ class CellPopulation {
 
 protected: 
 	
-	std::list<Cell*> mCells;
+	std::list<Cell*> all_cells;
 
 
 public:
 
-	CellPopulation(std::vector<Cell*>& rCells);
+	CellPopulation(std::vector<Cell*>& all_cells);
 
 	void InitialiseCells();
 
-	std::list<Cell*>& rGetCells();
+	std::list<Cell*>& get_cells();
 
 	//virtual Cell* AddCell(Cell* pNewCell, Cell* pParentCell = Cell * ()) = 0;
 
@@ -26,7 +26,7 @@ public:
 
 	//virtual void Update(bool hasBirthsOrDeaths = true) = 0;
 
-	unsigned getNumAllCells();
+	unsigned get_number_all_cells();
 
 	//virtual void OpenWritersFiles(OutputFileHandler& rOutputFileHandler);
 
@@ -110,7 +110,7 @@ bool CellPopulation::Iterator::IsRealCell()
 
 bool CellPopulation::Iterator::IsAtEnd()
 {
-	return mCellIter == mrCellPopulation.rGetCells().end();
+	return mCellIter == mrCellPopulation.get_cells().end();
 }
 
 
@@ -119,14 +119,14 @@ CellPopulation::Iterator::Iterator(CellPopulation& rCellPopulation, std::list<Ce
 	mCellIter(cellIter)
 {
 	// The cell population can now return empty if it only has ghost nodes
-	if (mrCellPopulation.rGetCells().empty())
+	if (mrCellPopulation.get_cells().empty())
 	{
-		mCellIter = mrCellPopulation.rGetCells().end();
+		mCellIter = mrCellPopulation.get_cells().end();
 	}
 	else
 	{
 		// Make sure we start at a real cell
-		if (mCellIter == mrCellPopulation.rGetCells().begin() && !IsRealCell())
+		if (mCellIter == mrCellPopulation.get_cells().begin() && !IsRealCell())
 		{
 			++(*this);
 		}
@@ -136,13 +136,13 @@ CellPopulation::Iterator::Iterator(CellPopulation& rCellPopulation, std::list<Ce
 
 typename CellPopulation::Iterator CellPopulation::Begin()
 {
-	return Iterator(*this, this->mCells.begin());
+	return Iterator(*this, this->all_cells.begin());
 }
 
 
 typename CellPopulation::Iterator CellPopulation::End()
 {
-	return Iterator(*this, this->mCells.end());
+	return Iterator(*this, this->all_cells.end());
 }
 
 #endif /* CELLPOPULATION_H_ */

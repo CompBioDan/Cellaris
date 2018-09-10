@@ -26,7 +26,7 @@ public:
 
 	Cell(); // cell constructor
 
-	Cell* divideCell(); // method for dividing the cell creating new daughter cell and allocating data
+	Cell* divide(); // method for dividing the cell creating new daughter cell and allocating data
 
 	//virtual void update();
 
@@ -36,6 +36,8 @@ public:
 	double getBirthTime() const; // return cell birth time
 	 
 	double getAge() const; // return cell age
+
+	void age();
 
 	void setCellPos(doubleVec3d position); // set cell's position
 
@@ -53,7 +55,17 @@ public:
 
 	void setNumberParticles(int numparticles);
 
+	void setSpringOffset(int springoffset);
+
+	void setNumberSprings(int numbersprings);
+
+	int getNumberParticles();
+
 	int getParticleOffset();
+
+	int getNumberSprings();
+
+	int getSpringOffset();
 
 	// Cell data
 	int particle_offset; // integer position of first cell particle within the FleX buffers

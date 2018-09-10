@@ -52,6 +52,8 @@ bool Cell::readyToDivide()
 	std::mt19937 gen(rd()); //Standard mersenne_twister_engine seeded with rd()
 	std::uniform_real_distribution<> dis(-1, 1);
 
+	Cell::age();
+
 	double cell_cycle_length = 10.0; /** TO CHANGE: new cell cycle class will allow for a cleaner allocation of a cell cycle length*/
 
 	/** If cell has reached the end of its cell cycle then return true */
@@ -63,7 +65,7 @@ bool Cell::readyToDivide()
 	}
 }
 
-Cell* Cell::divideCell()
+Cell* Cell::divide()
 {
 	/** Find number of births, used to allocate new ID for daughter cell */
 	unsigned numberBirths = Scene::Instance()->getNumBirths();
@@ -72,19 +74,22 @@ Cell* Cell::divideCell()
 	resetCell();
 
 	/** Create a new daughter cell */ 
-	Cell* p_new_cell(new Cell());
+	Cell* child(new Cell());
 
-	p_new_cell->setBirthTime(SceneTime::Instance()->GetTime()); /** Allocate the birth time of new cell to current simulation time*/
-	p_new_cell->setCellId(numberBirths + 1); /** New daughter cell ID is set as the number of births */
-	p_new_cell->setNumberParticles(3); /** TO CHANGE: number of particles will vary, depending on cell-type */
-	p_new_cell->setParticleOffset(Scene::Instance()->getNumberActiveParticles()); /** Particle offset for flex buffers need seperate methods*/
+	child->setBirthTime(SceneTime::Instance()->GetTime()); /** Allocate the birth time of new cell to current simulation time*/
+	child->setCellId(numberBirths + 1); /** New daughter cell ID is set as the number of births */
+	child->setNumberParticles(getNumberParticles()); /** TO CHANGE: number of particles will vary, depending on cell-type */
+	child->setParticleOffset(Scene::Instance()->getNumberActiveParticles()); /** Particle offset for flex buffers need seperate methods*/
+	child->setSpringOffset(getNumberSprings());
+	child->setNumberSprings(getNumberSprings());
+	
 	Scene::Instance()->setNumberActiveParticles(Scene::Instance()->getNumberActiveParticles() + 3); /** TO CHANGE: Number of active particles probably returned from Flex instance*/
 
 	/** Increment the number of births during the scene */
 	Scene::Instance()->setBirths(numberBirths + 1);
 
 	/** Return the new cell */
-	return p_new_cell;
+	return child;
 }
 
 void Cell::resetCell()
@@ -98,6 +103,10 @@ void Cell::setNumberParticles(int numparticles)
 	number_particles = numparticles;
 }
 
+int Cell::getNumberParticles()
+{
+	return number_particles;
+}
 void Cell::setParticleOffset(int particleoffset)
 {
 	particle_offset = particleoffset;
@@ -106,4 +115,30 @@ void Cell::setParticleOffset(int particleoffset)
 int Cell::getParticleOffset()
 {
 	return particle_offset;
+}
+
+void Cell::age()
+{
+	cell_age = SceneTime::Instance()->GetTime() - cell_birth_time;
+}
+
+
+void Cell::setNumberSprings(int numbersprings)
+{
+	number_springs = numbersprings;
+}
+
+void Cell::setSpringOffset(int springoffset)
+{
+	spring_offset = springoffset;
+}
+
+int Cell::getSpringOffset()
+{
+	return spring_offset;
+}
+
+int Cell::getNumberSprings()
+{
+	return number_springs;
 }
